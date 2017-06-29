@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Postings Page</title>
+
+    <th:block th:replace="base :: head"></th:block>
+</head>
+<br />
+<br />
+<br />
+<br />
+<br />
+<body>
+
+<th:block th:replace="base :: nav"></th:block>
+<h2> All Postings</h2>
+
+	<table>
+	<thead>
+		<tr>
+		<th>Id</th>
+		<th>URl</th>
+		<th>Name</th>
+		<th>Date</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr th:each="postings : ${homeObject}" >
+			<td th:text="${postings.id}" />
+			<td th:text="${postings.url}" />
+			<td th:text="'Submitted by: ' ${p.name}" />
+			<td th:text="${postings.date}" />
+		</tr>
+	</tbody>
+</table>
+<th:block th:replace="base :: footlinks"></th:block>
+</body>
+</html>
